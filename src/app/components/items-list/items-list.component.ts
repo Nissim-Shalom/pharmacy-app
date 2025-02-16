@@ -1,28 +1,28 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MainService } from '../../services/main-service';
 
 @Component({
   selector: 'app-items-list',
   standalone: true,
-  imports: [MatTableModule, MatToolbarModule, MatSidenavModule, MatButtonModule],
+  imports: [RouterLink, MatTableModule, MatToolbarModule, MatSidenavModule, MatButtonModule, MatListModule],
   templateUrl: './items-list.component.html',
   styleUrls: ['./items-list.component.scss']
 })
 export class ItemsListComponent {
+  user = this.mainService.user;
   displayedColumns: string[] = ['name', 'price', 'activeIngredient', 'stock', 'packaging'];
-  dataSource = [
-    { name: 'תרופה א', price: 50, activeIngredient: 'מרכיב א', stock: 100, packaging: 10 },
-    { name: 'תרופה ב', price: 70, activeIngredient: 'מרכיב ב', stock: 80, packaging: 20 }
-  ];
+  dataSource = this.mainService.dataSource;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public mainService: MainService) {}
 
   selectItem(item: any) {
     // מעבר לדף ההזמנה עם שם הפריט כפרמטר
-    this.router.navigate(['/order', item.name]);
+    this.router.navigate(['/order', item.id]);
   }
 }

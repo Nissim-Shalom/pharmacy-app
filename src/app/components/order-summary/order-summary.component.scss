@@ -1,3 +1,59 @@
-.content {
+/* עיצוב כללי לגוף העמוד */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f0f8ff; /* גוון כחול בהיר */
+}
+
+/* עיצוב ל-toolbar */
+.mat-toolbar {
+  background: linear-gradient(90deg, #7986cb, #bbdefb); /* רקע גרדיאנט עדין */
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px 16px;
+  font-size: 1rem;
+}
+
+/* עיצוב לאזורי תוכן */
+.order-content {
   padding: 16px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 16px;
+}
+
+/* עיצוב אופקי לשדות */
+.order-fields {
+  margin: 16px 0;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.mat-form-field {
+  flex: 1;
+  /* עדכון עיצוב השדה - רקע עדין וקצוות מעוגלים */
+  .mat-form-field-flex {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+}
+
+/* עיצוב ל-sidenav */
+.mat-sidenav {
+  width: 200px; /* רוחב מצומצם */
+  background-color: #e1f5fe;
+  border-right: 1px solid #ccc; /* מפריד בין התפריט לתוכן */
+  padding: 16px;
+}
+
+/* עיצוב כפתורים */
+button.mat-raised-button {
+  margin-top: 16px;
 }

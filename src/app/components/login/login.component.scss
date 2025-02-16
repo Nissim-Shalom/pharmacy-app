@@ -5,3 +5,47 @@
   flex-direction: column;
   gap: 16px;
 }
+
+/* עיצוב מודרני לשדות - appearance: fill */
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #fff;        /* רקע לבן נקי */
+  border-radius: 4px;            /* פינות מעוגלות עדינות */
+  padding: 0 8px;                /* ריווח פנימי מינימלי */
+  border: 1px solid transparent; /* גבול דק ושקוף כברירת מחדל */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* בעת מעבר העכבר - גבול עדין */
+.mat-form-field-appearance-fill .mat-form-field-flex:hover {
+  border-color: #bbb;
+}
+
+/* בעת התמקדות בשדה - הדגשה עם צבע וקצת הצללה */
+.mat-form-field-appearance-fill.mat-focused .mat-form-field-flex {
+  border-color: #3f51b5;         /* צבע עיקרי (ניתן לשנות לפי הצורך) */
+  box-shadow: 0 2px 8px rgba(63, 81, 181, 0.2);
+}
+
+/* הסרת ה-outline המובנה של Angular Material */
+.mat-form-field-appearance-fill .mat-form-field-outline {
+  display: none;
+}
+
+/* התאמת עיצוב התווית (label) */
+.mat-form-field-label {
+  font-weight: 500;
+  
+  transition: color 0.3s ease;
+}
+
+.mat-form-field-appearance-fill.mat-focused .mat-form-field-label {
+  color: #3f51b5;
+}
+
+/* עיצוב תיבת הקלט (input) */
+.mat-input-element {
+  font-size: 1rem;
+
+  padding: 8px 0;
+}
+

@@ -1,19 +1,21 @@
+import { MainService } from './../../services/main-service';
 import { Component } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-order-summary',
   standalone: true,
-  imports: [MatTableModule, MatToolbarModule, MatSidenavModule],
+  imports: [RouterModule, MatTableModule, MatToolbarModule, MatSidenavModule, MatListModule],
   templateUrl: './order-summary.component.html',
   styleUrls: ['./order-summary.component.scss']
 })
 export class OrderSummaryComponent {
-  displayedColumns: string[] = ['name', 'batch', 'dosage', 'totalQuantity'];
-  dataSource = [
-    { name: 'תרופה א', batch: 'A123', dosage: '500 מ״ג', totalQuantity: 20 },
-    { name: 'תרופה ב', batch: 'B456', dosage: '250 מ״ג', totalQuantity: 10 }
-  ];
+  displayedColumns: string[] = ['name', 'batch', 'price', 'quantity'];
+  dataSource = this.mainService.user.order;
+
+  constructor(public mainService: MainService) { }
 }

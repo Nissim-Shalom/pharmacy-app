@@ -11,14 +11,27 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="order-content">
-      <h2>פרטי התרופה: {{item.name}}</h2>
-      <p>מחיר: {{item.price}}</p>
-      <p>מרכיב פעיל: {{item.activeIngredient}}</p>
-      <p>מלאי: {{item.stock}}</p>
-      <p>כמות באריזה: {{item.packaging}}</p>
-      <p>אצווה: {{item.batch}}</p>
-      <p>תאריך ייצור: {{item.productionDate}}</p>
-      <p>תפוגה: {{item.expiryDate}}</p>
+      <h2>פרטי התרופה: {{currItem.name}}</h2>
+      <p>מחיר: {{currItem.price}}</p>
+      <p>מרכיב פעיל: {{currItem.activeIngredient}}</p>
+      <p>מלאי: {{currItem.stock}}</p>
+      <p>כמות באריזה: {{currItem.packaging}}</p>
+      <p>אצווה: {{currItem.batch}}</p>
+      <p>תאריך ייצור: {{currItem.productionDate}}</p>
+      <p>תפוגה: {{currItem.expiryDate}}</p>
+
+      <!-- אזור השדות המעוצבים בצורה אופקית -->
+      <div class="order-fields">
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>כמות להזמנה</mat-label>
+            <input matInput type="number" [formControl]="orderQuantityControl" min="1"/>
+            <mat-error *ngIf="orderQuantityControl.hasError('min') || orderQuantityControl.hasError('required')">כמות להזמנה לא תקינה</mat-error>
+          </mat-form-field>
+          <!-- אפשר להוסיף שדות נוספים לצד זה במידת הצורך -->
+        </div>
+      </div>
+
       <button mat-raised-button color="primary" (click)="completeOrder()">סיום</button>
     </div>
   </mat-sidenav-content>
