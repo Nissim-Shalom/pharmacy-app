@@ -1,1 +1,22 @@
 
+body {
+  background-color: #f0f8ff; /* גוון כחול בהיר */
+  font-family: Roboto, sans-serif;
+}
+
+.mat-toolbar {
+  background-color: #b3e5fc !important; /* כחול תכלת רך */
+  color: #fff;
+}
+
+.mat-sidenav {
+  background-color: #e1f5fe;
+}
+
+.content, .order-content, .edit-container {
+  padding: 16px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
