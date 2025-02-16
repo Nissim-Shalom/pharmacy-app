@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <span>הזמנת פריט</span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/items-list">פריטים</a>
+      <a mat-list-item routerLink="/order-summary">הפקת הזמנה</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="order-content">
+      <h2>פרטי התרופה: {{item.name}}</h2>
+      <p>מחיר: {{item.price}}</p>
+      <p>מרכיב פעיל: {{item.activeIngredient}}</p>
+      <p>מלאי: {{item.stock}}</p>
+      <p>כמות באריזה: {{item.packaging}}</p>
+      <p>אצווה: {{item.batch}}</p>
+      <p>תאריך ייצור: {{item.productionDate}}</p>
+      <p>תפוגה: {{item.expiryDate}}</p>
+      <button mat-raised-button color="primary" (click)="completeOrder()">סיום</button>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
