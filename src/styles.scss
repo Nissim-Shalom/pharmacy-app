@@ -1,22 +1,105 @@
-
-body {
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #f0f8ff; /* גוון כחול בהיר */
-  font-family: Roboto, sans-serif;
 }
 
+/* Toolbar */
 .mat-toolbar {
-  background-color: #b3e5fc !important; /* כחול תכלת רך */
+  background: linear-gradient(90deg, #7986cb, #bbdefb) !important; /* גרדיאנט עם גוונים בהירים יותר */
   color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px 16px;
+  font-size: 1rem;
 }
 
+/* כלל להקטנת כותרות (אם נעשה שימוש ברכיבי h1-h6) */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.5rem !important;
+  margin: 0;
+}
+
+/* Sidenav */
 .mat-sidenav {
+  width: 200px !important; /* קביעת רוחב מצומצם יותר */
   background-color: #e1f5fe;
-}
-
-.content, .order-content, .edit-container {
+  border-right: 1px solid #ccc; /* מפריד בין התפריט לתוכן */
   padding: 16px;
 }
 
+/* אזורי תוכן: דפי תוכן, הזמנות, עריכות וכו' */
+.content, .order-content, .edit-container {
+  padding: 16px;
+  background-color: #ffffff; /* רקע עדין */
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 16px;
+}
+
+/* מחלקת עזר למרווח */
 .spacer {
   flex: 1 1 auto;
+}
+
+.footer {
+  position: fixed;
+  direction: ltr;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.8rem !important;
+  justify-content: center;
+  background: linear-gradient(90deg, #3f51b5, #64b5f6); /* רקע גרדיאנט */
+  color: #fff;
+  padding: 8px 0;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2); /* אפקט צל */
+  height: 25px !important  ;
+  direction: rtl;
+}
+
+/* עיצוב מודרני לשדות - appearance: fill */
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #fff;        /* רקע לבן נקי */
+  border-radius: 4px;            /* פינות מעוגלות עדינות */
+  padding: 0 8px;                /* ריווח פנימי מינימלי */
+  border: 1px solid transparent; /* גבול דק ושקוף כברירת מחדל */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* בעת מעבר העכבר - גבול עדין */
+.mat-form-field-appearance-fill .mat-form-field-flex:hover {
+  border-color: #bbb;
+}
+
+/* בעת התמקדות בשדה - הדגשה עם צבע וקצת הצללה */
+.mat-form-field-appearance-fill.mat-focused .mat-form-field-flex {
+  border-color: #3f51b5;         /* צבע עיקרי (ניתן לשנות לפי הצורך) */
+  box-shadow: 0 2px 8px rgba(63, 81, 181, 0.2);
+}
+
+/* הסרת ה-outline המובנה של Angular Material */
+.mat-form-field-appearance-fill .mat-form-field-outline {
+  display: none;
+}
+
+/* התאמת עיצוב התווית (label) */
+.mat-form-field-label {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.mat-form-field-appearance-fill.mat-focused .mat-form-field-label {
+  color: #3f51b5;
+}
+
+/* עיצוב תיבת הקלט (input) */
+.mat-input-element {
+  font-size: 1rem;
+  padding: 8px 0;
+
+}
+input{
+  border-radius: 5px !important;
+  padding: 2px 4px !important;
 }

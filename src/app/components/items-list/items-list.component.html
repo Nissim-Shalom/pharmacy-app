@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">
   <span>בית מרקחת</span>
   <span class="spacer"></span>
-  <span>משתמש: [שם משתמש]</span>
-  <button mat-button>יציאה</button>
+  <span>משתמש: [{{user.name}}]</span>
+  <button mat-button [routerLink]="['/login']">יציאה</button>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -15,7 +15,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content">
-      <h1>רשימת פריטים</h1>
+      <h3>רשימת פריטים</h3>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- עמודת שם פריט -->
         <ng-container matColumnDef="name">

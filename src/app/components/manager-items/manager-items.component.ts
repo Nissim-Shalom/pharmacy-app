@@ -1,19 +1,29 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
-  selector: 'app-order-summary',
+  selector: 'app-manager-items',
   standalone: true,
-  imports: [MatTableModule, MatToolbarModule, MatSidenavModule],
-  templateUrl: './order-summary.component.html',
-  styleUrls: ['./order-summary.component.scss']
+  imports: [MatTableModule, MatToolbarModule, MatSidenavModule, MatButtonModule, MatListModule],
+  templateUrl: './manager-items.component.html',
+  styleUrls: ['./manager-items.component.scss']
 })
-export class OrderSummaryComponent {
-  displayedColumns: string[] = ['name', 'batch', 'dosage', 'totalQuantity'];
+export class ManagerItemsComponent {
+  displayedColumns: string[] = ['name', 'price', 'activeIngredient', 'stock', 'packaging', 'actions'];
   dataSource = [
-    { name: 'תרופה א', batch: 'A123', dosage: '500 מ״ג', totalQuantity: 20 },
-    { name: 'תרופה ב', batch: 'B456', dosage: '250 מ״ג', totalQuantity: 10 }
+    { name: 'תרופה א', price: 50, activeIngredient: 'מרכיב א', stock: 100, packaging: 10 },
+    { name: 'תרופה ב', price: 70, activeIngredient: 'מרכיב ב', stock: 80, packaging: 20 }
   ];
+
+  constructor(private router: Router) {}
+
+  editItem(item: any) {
+    // מעבר לדף עריכה עם העברת פרטי הפריט כ-query parameter
+    this.router.navigate(['/manager-edit'], { queryParams: { item: JSON.stringify(item) } });
+  }
 }

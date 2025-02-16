@@ -1,5 +1,5 @@
 <div class="login-container">
-  <h1>כניסה</h1>
+  <h3>כניסה</h3>
   <mat-form-field appearance="fill">
     <mat-label>שם משתמש</mat-label>
     <input matInput [(ngModel)]="username">
@@ -11,7 +11,9 @@
   <mat-form-field appearance="fill">
     <mat-label>OTP</mat-label>
     <input matInput [(ngModel)]="otp">
+
   </mat-form-field>
+  <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
   <!-- לחיצה על כפתור ההתחברות -->
   <button mat-raised-button color="primary" (click)="login()">כניסה</button>
 </div>
