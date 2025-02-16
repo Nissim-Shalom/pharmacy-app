@@ -1,0 +1,50 @@
+<mat-toolbar color="primary">
+  <span>עריכת/הוספת פריט</span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/manager-items">רשימת פריטים</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="edit-container">
+      <form [formGroup]="itemForm">
+        <mat-form-field appearance="fill">
+          <mat-label>שם פריט</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>מחיר פריט</mat-label>
+          <input matInput formControlName="price">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>מרכיב פעיל</mat-label>
+          <input matInput formControlName="activeIngredient">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>מלאי</mat-label>
+          <input matInput formControlName="stock">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>כמות באריזה</mat-label>
+          <input matInput formControlName="packaging">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>אצווה</mat-label>
+          <input matInput formControlName="batch">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>תאריך ייצור</mat-label>
+          <input matInput formControlName="productionDate" type="date">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>תפוגה</mat-label>
+          <input matInput formControlName="expiryDate" type="date">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="save()">שמור</button>
+      </form>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
